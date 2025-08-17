@@ -10,17 +10,17 @@ Execute the following steps to install and start Kafka in your environment:
    lsb_release -a
 
 2. Download Kafka binaries:
-   %sh wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.12-3.1.0.tgz
+   %sh wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.12-3.9.0.tgz
 
 3. Extract tar file:
-   %sh tar -xzf kafka_2.12-3.1.0.tgz
+   %sh tar -xzf kafka_2.12-3.9.0.tgz
 
 4. Start Zookeeper service:
-   %sh cd kafka_2.12-3.1.0/
+   %sh cd kafka_2.12-3.9.0/
    bin/zookeeper-server-start.sh config/zookeeper.properties
 
 5. Start Kafka broker service:
-   %sh cd kafka_2.12-3.1.0
+   %sh cd kafka_2.12-3.9.0
    bin/kafka-server-start.sh config/server.properties
 
 2. Kafka Topic Creation
@@ -29,16 +29,16 @@ To create topics in Kafka, execute the following commands:
    
 1. Create topic 'azdbadftopic':
    %sh
-   cd kafka_2.12-3.1.0
+   cd kafka_2.12-3.9.0
    bin/kafka-topics.sh --create --topic azdbadftopic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
 2. Create topic 'azdbadftopic1':
    %sh
-   cd kafka_2.12-3.1.0
+   cd kafka_2.12-3.9.0
    bin/kafka-topics.sh --create --topic azdbadftopic1 --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
 3. List available topics:
-   %sh cd kafka_2.12-3.1.0
+   %sh cd kafka_2.12-3.9.0
    bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 
 3. Kafka Producer API
