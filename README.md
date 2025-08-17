@@ -2,52 +2,53 @@
 Kafka with Databricks
 
 Kafka Installation and Databricks Integration Guide
-1. Kafka Installation
+**1. Kafka Installation**
 Execute the following steps to install and start Kafka in your environment:
 
-1. Check Linux version:
+**1. Check Linux version:**
    %sh
    lsb_release -a
 
-2. Download Kafka binaries:
+**2. Download Kafka binaries:**
    %sh wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.12-3.9.0.tgz
 
-3. Extract tar file:
+**3. Extract tar file:**
    %sh tar -xzf kafka_2.12-3.9.0.tgz
 
-4. Start Zookeeper service:
+**4. Start Zookeeper service:**
    %sh cd kafka_2.12-3.9.0/
    bin/zookeeper-server-start.sh config/zookeeper.properties
 
-5. Start Kafka broker service:
+**5. Start Kafka broker service:**
    %sh cd kafka_2.12-3.9.0
    bin/kafka-server-start.sh config/server.properties
 
-2. Kafka Topic Creation
+
+**2. Kafka Topic Creation**
 
 To create topics in Kafka, execute the following commands:
    
-1. Create topic 'azdbadftopic':
+**1. Create topic 'azdbadftopic':**
    %sh
    cd kafka_2.12-3.9.0
    bin/kafka-topics.sh --create --topic azdbadftopic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
-2. Create topic 'azdbadftopic1':
+**2. Create topic 'azdbadftopic1':**
    %sh
    cd kafka_2.12-3.9.0
    bin/kafka-topics.sh --create --topic azdbadftopic1 --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
-3. List available topics:
+**3. List available topics:**
    %sh cd kafka_2.12-3.9.0
    bin/kafka-topics.sh --list --bootstrap-server localhost:9092
 
-3. Kafka Producer API
+**3. Kafka Producer API**
 
-1. Install required libraries:
+**1. Install required libraries:**
    pip install Faker
    pip install kafka-python
 
-2. Generate fake data and publish to Kafka topic:
+**2. Generate fake data and publish to Kafka topic:**
 
    from faker import Faker
    from kafka import KafkaProducer
@@ -75,7 +76,7 @@ To create topics in Kafka, execute the following commands:
            producer.send("azdbadftopic", registered_user)
            time.sleep(1)
 
-4. Kafka Consumer in Databricks
+**4. Kafka Consumer in Databricks**
 
 Consume and process messages from Kafka using Databricks Structured Streaming:
 
